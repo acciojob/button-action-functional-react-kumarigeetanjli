@@ -1,18 +1,23 @@
-import React, {Component, useState} from "react";
-import "./../styles/App.css";
+import React, { useState } from 'react';
 
-function App() {
-  const[paragraph,setPara]=useState(false);
-  const Btn = () =>{
-    setPara(!paragraph)
-  };
+function MyButton() {
+  // Declare a new state variable, "showText", and set it to false
+  const [showText, setShowText] = useState(false);
+
   return (
-    <div id="main">
-      {paragraph ?  "":<p className="para">Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy</p>}
-      <button className="click" onClick={Btn}>Paragraph</button>
+    <div>
+      {/* When the button is clicked, call the "setShowText" function to update the "showText" state variable */}
+      <button id="click" onClick={() => setShowText(!showText)}>
+        Click Me
+      </button>
+      {/* Use the "showText" state variable to conditionally render the paragraph tag */}
+      {showText && (
+        <p id="para">
+          Hello, I've learnt to use the full-stack evaluation tool. This makes me so happy
+        </p>
+      )}
     </div>
   );
 }
 
-
-export default App;
+export default MyButton;
